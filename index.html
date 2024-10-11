@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blady's Little World</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/translate.js" defer></script>
+</head>
+<body>
+    <!-- Navbar with Hamburger Menu -->
+    <nav class="navbar">
+        <div class="logo">
+            <h2>Blady's Little World</h2>
+        </div>
+        <div class="menu-icon" id="menu-icon">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list" id="nav-list">
+            <!-- Changed href to avoid scrolling -->
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#contact">Contact Info</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to Blady's Little World</h1>
+        <p>At Blady's Little World, our vision is to be a leader in early childhood education.</p>
+        <div class="buttons">
+            <button id="info-btn" class="cta">Request Information</button>
+            <button id="tour-btn" class="cta">Schedule a Tour</button>
+        </div>
+        <img src="images/Blady_image2.png" alt="Blady's Little World Logo">
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Our vision at Blady's Little World is to cultivate a love for learning and cultural appreciation...</p>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs">
+        <h2>Our Programs</h2>
+        <h3>Infant Care</h3>
+        <p>Age Group: 5 months to 12 months</p>
+        <h3>Toddler Program</h3>
+        <p>Age Group: 1 to 3 years</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p>Address: 84 Warren Ave, Marlborough, MA 01752</p>
+        <p>Phone: 786 614 9899</p>
+        <p>Email: bladyslittleworld@gmail.com</p>
+    </section>
+
+    <!-- Request Information Section -->
+    <section id="form-section">
+        <h2>Request Information or Schedule a Tour</h2>
+        <div class="contact-form">
+            <form action="#">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Blady's Little World. All rights reserved.</p>
+    </footer>
+
+    <!-- Translate Button -->
+    <button id="translate-btn">Translate to Spanish</button>
+
+    <!-- JavaScript for Hamburger Menu -->
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navList = document.getElementById('nav-list');
+
+        menuIcon.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
