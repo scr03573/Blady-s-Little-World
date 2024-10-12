@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const translateBtn = document.getElementById('translate-btn');
 
-    // Define the translations
+    // Translations
     const translations = {
         en: {
             welcome: "Welcome to Blady's Little World",
@@ -46,26 +46,27 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentLang = 'en';
 
     function updateContent(lang) {
-        document.querySelector('#home h1').textContent = translations[lang].welcome;
-        document.querySelector('#home p').textContent = translations[lang].vision;
-        document.querySelector('#info-btn').textContent = translations[lang].requestInfo;
-        document.querySelector('#tour-btn').textContent = translations[lang].scheduleTour;
-        document.querySelector('#about h2').textContent = translations[lang].aboutUs;
-        document.querySelector('#programs h3:nth-of-type(1)').textContent = translations[lang].infantCare;
-        document.querySelector('#programs h3:nth-of-type(2)').textContent = translations[lang].toddlerProgram;
-        document.querySelector('#contact h2').textContent = translations[lang].contactInfo;
-        document.querySelector('#contact p:nth-of-type(1)').textContent = translations[lang].address;
-        document.querySelector('#contact p:nth-of-type(2)').textContent = translations[lang].phone;
-        document.querySelector('#contact p:nth-of-type(3)').textContent = translations[lang].email;
-        document.querySelector('#form-section h2').textContent = translations[lang].formHeader;
-        document.querySelector('label[for="name"]').textContent = translations[lang].nameLabel;
-        document.querySelector('label[for="email"]').textContent = translations[lang].emailLabel;
-        document.querySelector('label[for="message"]').textContent = translations[lang].messageLabel;
-        document.querySelector('input[type="submit"]').value = translations[lang].submitBtn;
-        translateBtn.textContent = translations[lang].translateBtnText;
+        const content = translations[lang];
+        document.querySelector('#home h1').textContent = content.welcome;
+        document.querySelector('#home p').textContent = content.vision;
+        document.getElementById('info-btn').textContent = content.requestInfo;
+        document.getElementById('tour-btn').textContent = content.scheduleTour;
+        document.querySelector('#about h2').textContent = content.aboutUs;
+        document.querySelectorAll('#programs h3')[0].textContent = content.infantCare;
+        document.querySelectorAll('#programs h3')[1].textContent = content.toddlerProgram;
+        document.querySelector('#contact h2').textContent = content.contactInfo;
+        document.querySelector('#contact p:nth-of-type(1)').innerHTML = `<strong>${content.address.split(':')[0]}:</strong> ${content.address.split(':')[1]}`;
+        document.querySelector('#contact p:nth-of-type(2)').innerHTML = `<strong>${content.phone.split(':')[0]}:</strong> <a href="tel:7866149899">${content.phone.split(':')[1]}</a>`;
+        document.querySelector('#contact p:nth-of-type(3)').innerHTML = `<strong>${content.email.split(':')[0]}:</strong> <a href="mailto:bladyslittleworld@gmail.com">${content.email.split(':')[1]}</a>`;
+        document.querySelector('#form-section h2').textContent = content.formHeader;
+        document.querySelector('label[for="name"]').textContent = content.nameLabel;
+        document.querySelector('label[for="email"]').textContent = content.emailLabel;
+        document.querySelector('label[for="message"]').textContent = content.messageLabel;
+        document.querySelector('input[type="submit"]').value = content.submitBtn;
+        translateBtn.textContent = content.translateBtnText;
     }
 
-    translateBtn.addEventListener('click', function() {
+    translateBtn.addEventListener('click', () => {
         currentLang = currentLang === 'en' ? 'es' : 'en';
         updateContent(currentLang);
     });

@@ -2,102 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blady's Little World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Blady's Little World - A leader in early childhood education.">
+    <meta name="keywords" content="Childcare, Education, Preschool, Infant Care, Toddler Program">
+    <meta name="author" content="Blady's Little World">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/translate.js" defer></script>
 </head>
 <body>
-    <!-- Navbar with Hamburger Menu -->
+
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
-            <h2>Blady's Little World</h2>
+            <h2><a href="#home">Blady's Little World</a></h2>
         </div>
         <div class="menu-icon" id="menu-icon">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
         <ul class="nav-list" id="nav-list">
-            <!-- Set href="#" and use JavaScript to prevent any action -->
-            <li><a href="#" id="home-link">Home</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#programs">Programs</a></li>
-            <li><a href="#contact">Contact Info</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button id="translate-btn">Translate to Spanish</button></li>
         </ul>
     </nav>
 
     <!-- Home Section -->
-    <section id="home">
-        <h1>Welcome to Blady's Little World</h1>
-        <p>At Blady's Little World, our vision is to be a leader in early childhood education.</p>
-        <div class="buttons">
-            <button id="info-btn" class="cta">Request Information</button>
-            <button id="tour-btn" class="cta">Schedule a Tour</button>
+    <header id="home">
+        <div class="hero-content">
+            <h1>Welcome to Blady's Little World</h1>
+            <p>At Blady's Little World, our vision is to be a leader in early childhood education.</p>
+            <div class="buttons">
+                <a href="#form-section" class="cta" id="info-btn">Request Information</a>
+                <a href="#form-section" class="cta" id="tour-btn">Schedule a Tour</a>
+            </div>
         </div>
-        <img src="images/Blady_image2.png" alt="Blady's Little World Logo">
-    </section>
+        <img src="images/blady_image1.png" alt="Happy children at Blady's Little World">
+    </header>
 
-    <!-- About Us Section -->
+    <!-- About Section -->
     <section id="about">
         <h2>About Us</h2>
-        <p>Our vision at Blady's Little World is to cultivate a love for learning and cultural appreciation...</p>
+        <p>Blady's Little World is dedicated to providing a nurturing environment for early childhood development...</p>
     </section>
 
     <!-- Programs Section -->
     <section id="programs">
         <h2>Our Programs</h2>
-        <h3>Infant Care</h3>
-        <p>Age Group: 5 months to 12 months</p>
-        <h3>Toddler Program</h3>
-        <p>Age Group: 1 to 3 years</p>
+        <div class="program">
+            <h3>Infant Care</h3>
+            <p>Our infant care program provides a safe and stimulating environment...</p>
+        </div>
+        <div class="program">
+            <h3>Toddler Program</h3>
+            <p>Our toddler program encourages exploration and learning through play...</p>
+        </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Information</h2>
-        <p>Address: 84 Warren Ave, Marlborough, MA 01752</p>
-        <p>Phone: 786 614 9899</p>
-        <p>Email: bladyslittleworld@gmail.com</p>
+        <p><strong>Address:</strong> 84 Warren Ave, Marlborough, MA 01752</p>
+        <p><strong>Phone:</strong> <a href="tel:7866149899">786 614 9899</a></p>
+        <p><strong>Email:</strong> <a href="mailto:bladyslittleworld@gmail.com">bladyslittleworld@gmail.com</a></p>
     </section>
 
-    <!-- Request Information Section -->
+    <!-- Form Section -->
     <section id="form-section">
         <h2>Request Information or Schedule a Tour</h2>
-        <div class="contact-form">
-            <form action="#">
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
+                <input type="text" name="name" id="name" required placeholder="Your full name">
+            </div>
+            <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
+                <input type="email" name="_replyto" id="email" required placeholder="Your email address">
+            </div>
+            <div class="form-group">
                 <label for="message">Message:</label>
-                <textarea id="message" name="message"></textarea>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
+                <textarea name="message" id="message" required placeholder="How can we assist you?"></textarea>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2024 Blady's Little World. All rights reserved.</p>
+        <p>&copy; 2023 Blady's Little World. All rights reserved.</p>
     </footer>
 
-    <!-- Translate Button -->
-    <button id="translate-btn">Translate to Spanish</button>
-
-    <!-- JavaScript for Hamburger Menu -->
+    <!-- JavaScript -->
+    <script src="js/translate.js"></script>
     <script>
+        // Hamburger Menu Toggle
         const menuIcon = document.getElementById('menu-icon');
         const navList = document.getElementById('nav-list');
-        const homeLink = document.getElementById('home-link');
 
         menuIcon.addEventListener('click', () => {
             navList.classList.toggle('active');
-        });
-
-        // Prevent any action on the "Home" button click
-        homeLink.addEventListener('click', (event) => {
-            event.preventDefault();  // Prevents the default behavior
         });
     </script>
 </body>
