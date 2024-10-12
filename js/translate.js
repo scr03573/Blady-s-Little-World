@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('toddler-program-heading').textContent = content.toddlerProgram;
         document.getElementById('toddler-program-description').textContent = content.toddlerProgramDescription;
         document.getElementById('contact-heading').textContent = content.contactInfo;
-        document.getElementById('contact-address').innerHTML = `<strong>${content.address.split(':')[0]}:</strong>${content.address.split(':')[1]}`;
+        document.getElementById('contact-address').innerHTML = `<strong>${content.address.split(':')[0]}:</strong> ${content.address.split(':')[1]}`;
         document.getElementById('contact-phone').innerHTML = `<strong>${content.phone.split(':')[0]}:</strong> <a href="tel:7866149899">${content.phone.split(':')[1]}</a>`;
         document.getElementById('contact-email').innerHTML = `<strong>${content.email.split(':')[0]}:</strong> <a href="mailto:bladyslittleworld@gmail.com">${content.email.split(':')[1]}</a>`;
         document.getElementById('form-heading').textContent = content.formHeader;

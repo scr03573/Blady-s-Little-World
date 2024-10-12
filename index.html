@@ -28,7 +28,7 @@
             <div class="bar"></div>
         </div>
         <ul class="nav-list" id="nav-list">
-            <li><a href="#home" id="home-link">Home</a></li> <!-- Added id="home-link" -->
+            <li><a href="#home" id="home-link">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#programs">Programs</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -123,30 +123,22 @@
             }
         });
 
-        // Prevent jump when clicking 'Home' link while already at 'Home' section
-        const homeLink = document.getElementById('home-link');
-        homeLink.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default anchor behavior
-
-            // Calculate the position with offset
-            const homeSection = document.getElementById('home');
-            const yOffset = -80; // Adjust this value to set the desired space above the image
-            const yPosition = homeSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-            // Scroll to the position with smooth behavior
-            window.scrollTo({ top: yPosition, behavior: 'smooth' });
-        });
-
-        // Smooth scrolling for other anchor links
+        // Smooth scrolling for anchor links with offset for sticky navbar
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            if (anchor.getAttribute('href') !== '#home') { // Exclude 'Home' link as we handle it separately
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                const headerOffset = document.querySelector('.navbar').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
-            }
+            });
         });
     </script>
 </body>
