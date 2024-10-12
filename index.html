@@ -28,7 +28,7 @@
             <div class="bar"></div>
         </div>
         <ul class="nav-list" id="nav-list">
-            <li><a href="#home">Home</a></li> <!-- Added Home button -->
+            <li><a href="#home" id="home-link">Home</a></li> <!-- Added id="home-link" -->
             <li><a href="#about">About</a></li>
             <li><a href="#programs">Programs</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -120,6 +120,32 @@
                 navList.classList.toggle('active');
                 const expanded = menuIcon.getAttribute('aria-expanded') === 'true' || false;
                 menuIcon.setAttribute('aria-expanded', !expanded);
+            }
+        });
+
+        // Prevent jump when clicking 'Home' link while already at 'Home' section
+        const homeLink = document.getElementById('home-link');
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+
+            // Calculate the position with offset
+            const homeSection = document.getElementById('home');
+            const yOffset = -80; // Adjust this value to set the desired space above the image
+            const yPosition = homeSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            // Scroll to the position with smooth behavior
+            window.scrollTo({ top: yPosition, behavior: 'smooth' });
+        });
+
+        // Smooth scrolling for other anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (anchor.getAttribute('href') !== '#home') { // Exclude 'Home' link as we handle it separately
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
             }
         });
     </script>
