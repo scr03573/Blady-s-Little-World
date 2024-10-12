@@ -19,8 +19,8 @@
             <span class="bar"></span>
         </div>
         <ul class="nav-list" id="nav-list">
-            <!-- Changed href to avoid scrolling -->
-            <li><a href="./index.html">Home</a></li>
+            <!-- Set href="#" and use JavaScript to prevent any action -->
+            <li><a href="#" id="home-link">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#programs">Programs</a></li>
             <li><a href="#contact">Contact Info</a></li>
@@ -89,9 +89,15 @@
     <script>
         const menuIcon = document.getElementById('menu-icon');
         const navList = document.getElementById('nav-list');
+        const homeLink = document.getElementById('home-link');
 
         menuIcon.addEventListener('click', () => {
             navList.classList.toggle('active');
+        });
+
+        // Prevent any action on the "Home" button click
+        homeLink.addEventListener('click', (event) => {
+            event.preventDefault();  // Prevents the default behavior
         });
     </script>
 </body>
