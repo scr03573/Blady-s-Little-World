@@ -22,12 +22,13 @@
         <div class="logo">
             <h2><a href="#home">Blady's Little World</a></h2>
         </div>
-        <div class="menu-icon" id="menu-icon">
+        <div class="menu-icon" id="menu-icon" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
         <ul class="nav-list" id="nav-list">
+            <li><a href="#home">Home</a></li> <!-- Added Home button -->
             <li><a href="#about">About</a></li>
             <li><a href="#programs">Programs</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -109,6 +110,17 @@
 
         menuIcon.addEventListener('click', () => {
             navList.classList.toggle('active');
+            const expanded = menuIcon.getAttribute('aria-expanded') === 'true' || false;
+            menuIcon.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Accessibility: Allow keyboard navigation
+        menuIcon.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                navList.classList.toggle('active');
+                const expanded = menuIcon.getAttribute('aria-expanded') === 'true' || false;
+                menuIcon.setAttribute('aria-expanded', !expanded);
+            }
         });
     </script>
 </body>

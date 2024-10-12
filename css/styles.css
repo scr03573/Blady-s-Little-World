@@ -45,6 +45,7 @@ img {
 
 .logo h2 a {
     color: #fff;
+    text-decoration: none;
 }
 
 .nav-list {
@@ -59,8 +60,19 @@ img {
 .nav-list a {
     color: #fff;
     font-weight: 600;
+    text-decoration: none;
 }
 
+.nav-list button#translate-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Hamburger Menu */
 .menu-icon {
     display: none;
     flex-direction: column;
