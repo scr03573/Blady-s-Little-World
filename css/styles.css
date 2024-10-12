@@ -5,11 +5,20 @@
     box-sizing: border-box;
 }
 
+/* Color Variables */
+:root {
+    --primary-color: #ff6f61; /* Navbar, buttons */
+    --secondary-color: #ffe5e0; /* Background of header and sections */
+    --text-color: #333;
+    --background-color: #fdfdfd;
+    --button-hover-color: #ff8a75;
+}
+
 /* General Styling */
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: #fdfdfd;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
@@ -17,7 +26,24 @@ h1, h2, h3 {
     margin-bottom: 15px;
 }
 
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.75em;
+    font-weight: 600;
+}
+
 p {
+    font-size: 1em;
+    font-weight: 400;
     margin-bottom: 15px;
 }
 
@@ -36,7 +62,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ff6f61;
+    background-color: var(--primary-color);
     padding: 15px 20px;
     position: sticky;
     top: 0;
@@ -92,7 +118,7 @@ header {
     flex-wrap: wrap;
     align-items: center;
     padding: 60px 20px;
-    background-color: #ffe5e0;
+    background-color: var(--secondary-color);
 }
 
 .hero-content {
@@ -108,33 +134,84 @@ header img {
 /* Buttons */
 .buttons {
     margin-top: 20px;
+    text-align: center;
 }
 
 .cta {
     display: inline-block;
-    background-color: #ff6f61;
+    background-color: var(--primary-color);
     color: #fff;
     padding: 12px 25px;
     margin: 10px 5px 0 0;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    text-align: center;
 }
 
 .cta:hover {
-    background-color: #ff8a75;
+    background-color: var(--button-hover-color);
 }
 
 /* Sections */
 section {
     padding: 60px 20px;
-    scroll-margin-top: 80px; /* Adjust this value to match the height of your navbar */
+    scroll-margin-top: 80px;
+    background-color: var(--secondary-color);
+}
+
+section h2 {
+    text-align: center;
+}
+
+section p {
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    text-align: center;
 }
 
 .program {
     margin-bottom: 40px;
 }
 
+.program h3 {
+    text-align: center;
+}
+
+.program p {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Contact Section */
+#contact h2,
+#contact p {
+    text-align: center;
+}
+
+#contact p {
+    margin-bottom: 10px;
+}
+
+#contact p a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+#contact p a:hover {
+    text-decoration: underline;
+}
+
 /* Form */
+#form-section {
+    background-color: var(--secondary-color);
+}
+
+#form-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -158,18 +235,18 @@ form input, form textarea {
 }
 
 form input[type="submit"] {
-    background-color: #ff6f61;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     cursor: pointer;
-    padding: 15px;
+    padding: 12px 25px;
     font-size: 16px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 form input[type="submit"]:hover {
-    background-color: #ff8a75;
+    background-color: var(--button-hover-color);
 }
 
 /* Footer */
@@ -186,7 +263,7 @@ footer {
         position: absolute;
         top: 70px;
         right: 0;
-        background-color: #ff6f61;
+        background-color: var(--primary-color);
         flex-direction: column;
         width: 100%;
         display: none;
